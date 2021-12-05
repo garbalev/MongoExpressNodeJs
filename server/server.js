@@ -29,10 +29,10 @@ app.get('/users-api/users/:id', (req, resp) => {
     fs.readFile(path, "utf-8")
     .then(data => {
         const users = JSON.parse(data);
-        let result = 'user was not found';
+        let result = 'No such user';
         for (let us of users) {
             if (us.id == reqId) {
-                result = us;
+                result = [us];
                 break;
             }
         }
@@ -52,7 +52,7 @@ app.post('/users-api/users', jsonParser, (req, resp) => {
         newUser.id = usersMaxId + 1;
         users.push(newUser);
         fs.writeFile(path, JSON.stringify(users))
-        .then(resp.send(users))
+        .then(() => resp.send(users))
     })
 });
 
@@ -69,10 +69,31 @@ app.delete('/users-api/users/:id', (req, resp) => {
             } 
         }
         fs.writeFile(path, JSON.stringify(users))
-        .then(resp.send(result))
+        .then(() => resp.send(result))
 
-    })
-})
+    });
+});
+
+app.put('/users-api/users', jsonParser, (req, resp) => {
+    const reqId = req.body.id;
+    const reqName = req.body.name;
+    const reqAge = req.body.age;
+    fs.readFile(path, 'utf-8')
+    .then(data => {
+        let users = JSON.parse(data);
+        let result = 'user with this ID doesn`t exist';
+        for (let user of users) {
+            if (user.id == reqId) {
+                user.name = reqName;
+                user.age = reqAge;
+                result = user;
+                break
+            }
+        }
+        fs.writeFile(path, JSON.stringify(users))
+        .then(() => resp.send(result));
+    });
+});
 
 app.listen(3000, function(){
     console.log("Server started...");

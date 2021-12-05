@@ -1,17 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CLIENT</title>
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
       defer
     ></script>
     <script src="./client.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1 id="h1">CLIENT</h1>
-</body>
+    <div class="options">
+      <span class="buttons" id="showAll">Show all users</span>
+      <span class="buttons" id="showById">Show user with ID</span>
+      <input id="idValue" placeholder="ID" />
+      <span class="buttons" id="buttonAddUser" style="display: none;">Add new user</span>
+      <form id="formAddUser" name="addUserForm">
+          <div class="formInputs">  
+          <label style="font-weight: 500;">Enter your name</label>
+          <input required placeholder="Name" />
+          </div>
+          <div class="formInputs">
+          <label style="font-weight: 500;">Enter your age</label>
+          <input required placeholder="Age" />
+          </div>
+        <a class="buttons" id="addUser" style="margin-top: 5px;">Добавить</a>
+      </form>
+      <span class="buttons" id="close" style="margin-left: auto;">Close</span>
+    </div>
+    <div class="usersList">
+      
+    </div>
+    <style>
+      .usersList {
+        background-color: rgb(190, 190, 190);
+        padding: 20px 10px;
+        margin-top: 10px;
+      }
+      .user {
+        background-color: rgb(252, 221, 221);
+        border: 1px solid black;
+        border-radius: 10px;
+        padding-left: 10px;
+        margin-bottom: 5px;
+        width: 20%;
+      }
+      .response {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .options{
+        display: flex;
+        align-items: center;
+      }
+      .buttons {
+        border: 1.5px solid black;
+        border-radius: 4px;
+        padding: 1px 2px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .buttons:hover {
+        background-color: rgb(190, 190, 190);
+      }
+      #addUser:hover{
+        background-color: #fff;
+      }
+      #showById{
+        margin: 0 5px 0 40px;
+      }
+      #idValue {
+        width: 35px;
+        height: 18px;
+        border-radius: 4px;
+        border: 0.5px solid grey;
+        margin-right: 40px;
+      }
+      #formAddUser {
+        display: none;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 4px;
+        position: absolute;
+        right: 350px;
+        top: 150px;
+      }
+      .formInputs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+    </style>
+  </body>
 </html>
