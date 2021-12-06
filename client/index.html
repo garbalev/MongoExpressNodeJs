@@ -27,7 +27,7 @@
           <label style="font-weight: 500;">Enter your age</label>
           <input required placeholder="Age" />
           </div>
-        <a class="buttons" id="addUser" style="margin-top: 5px;">Добавить</a>
+        <a class="buttons" id="addUser" style="margin-top: 5px;">Add</a>
       </form>
       <span class="buttons" id="close" style="margin-left: auto;">Close</span>
     </div>
@@ -47,6 +47,18 @@
         padding-left: 10px;
         margin-bottom: 5px;
         width: 20%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .deleteUser {
+        margin: 10px 10px 0 0; 
+      }
+      .editUser{
+        width: fit-content;
+        margin: 20px 10px 0 auto;
+      }
+      .user .deleteUser:hover,.user .editUser:hover {
+        background-color: #fff;
       }
       .response {
         font-weight: 600;
@@ -61,6 +73,7 @@
         border-radius: 4px;
         padding: 1px 2px;
         font-weight: 500;
+        height: 18px;
         cursor: pointer;
       }
       .buttons:hover {
@@ -85,8 +98,8 @@
         border: 1px solid black;
         border-radius: 4px;
         position: absolute;
-        right: 350px;
-        top: 150px;
+        left: 550px;
+        top: 133px;
       }
       .formInputs {
         display: flex;
