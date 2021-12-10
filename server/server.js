@@ -48,7 +48,6 @@ app.get("/users-api/users", (req, resp) => {
   collection.find().toArray()
     .then((result) => {
       resp.send(result);
-      console.log(result);
     });
   // const result = fs
   //   .readFile(path, "utf-8")
@@ -128,11 +127,13 @@ app.put("/users-api/users", jsonParser, (req, resp) => {
   // });
   if (reqName !== "" && reqAge !== "") {
     collection.updateOne({id: reqId}, {$set: {name: reqName, age: reqAge}})
-  .then(() => resp.send('done'));
+    .then(() => resp.send('edited'));
   } else if(reqName === "" && reqAge !== "") {
     collection.updateOne({id: reqId}, {$set: {age: reqAge}})
+    .then(() => resp.send('edited'));
   } else if(reqName !== "" && reqAge === "") {
     collection.updateOne({id: reqId}, {$set: {name: reqName}})
+    .then(() => resp.send('edited'));
   }
 });
 
@@ -142,5 +143,6 @@ app.listen(3001, function () {
 
 process.on("SIGINT", () => {
   dbClient.close();
+  console.log('Server closed');
   process.exit();
 });

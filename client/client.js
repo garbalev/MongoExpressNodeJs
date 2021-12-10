@@ -1,5 +1,3 @@
-console.log($("#h1").text());
-
 // $.get('http://localhost:3000/users-api/users').then((data) => {
 //     console.log(data);;
 // });
@@ -171,4 +169,5 @@ $("#close").click(() => {
   $("#buttonAddUser").hide();
   $("#formAddUser").hide();
   $(".usersList").html("");
+  $(".usersList").append('<h2>Click the buttons above to start</h2>');
 });

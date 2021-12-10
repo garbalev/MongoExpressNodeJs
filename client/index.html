@@ -12,7 +12,8 @@
     <script src="./client.js" defer></script>
   </head>
   <body>
-    <h1 id="h1">CLIENT</h1>
+    <h1 style="text-align: center; margin-bottom: 10px;">MEJN</h1>
+    <h2 style="text-align: center; margin-top: 0;">(MongoExpressJsNode)</h2>
     <div class="options">
       <span class="buttons" id="showAll">Show all users</span>
       <span class="buttons" id="showById">Show user with ID</span>
@@ -32,7 +33,7 @@
       <span class="buttons" id="close" style="margin-left: auto;">Close</span>
     </div>
     <div class="usersList">
-      
+      <h2>Click the buttons above to start</h2>
     </div>
     <style>
       .usersList {
@@ -47,15 +48,17 @@
         padding-left: 10px;
         margin-bottom: 5px;
         width: 20%;
+        min-width: 200px;
         display: flex;
         justify-content: space-between;
       }
       .deleteUser {
-        margin: 10px 10px 0 0; 
+        margin: 6px 6px 0 10px; 
+        width: 80px;
       }
       .editUser{
         width: fit-content;
-        margin: 20px 10px 0 auto;
+        margin: 20px 6px 0 auto;
       }
       .user .deleteUser:hover,.user .editUser:hover {
         background-color: #fff;
@@ -67,6 +70,7 @@
       .options{
         display: flex;
         align-items: center;
+        /* margin-top: 50px; */
       }
       .buttons {
         border: 1.5px solid black;
